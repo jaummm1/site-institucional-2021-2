@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 /*
 cor primaria: #F9D84D
 cor secundaria: #F94D58
@@ -13,18 +15,20 @@ cor de texto: #cccccc
     --cor-prim-clara: #FFEC9C;
     --cor-secun: #F94D58;
     --cor-secun-clara: #FD9CA3;
-    --cor-texto:  #cccccc;
+    --cor-texto:  #EEEEEE;
     --cor-fundo: #333333;
     --cor-fundo-clara: #555555;
-
+    --fonte-texto: 'IBM Plex Sans', sans-serif;
+    --fonte-titulo: 'Playfair Display SC', serif;
 }
 /**************** CSS reset ************************/
+/*todos elementos*/
 * {
-    font-family: calibri, arial, sans-serif;
+    font-family: var(--fonte-texto);
     padding: 0;
     margin: 0;
     box-sizing: border-box; /*a borda faz parte das dimensoes do elemento*/
-    background-color: var(--cor-fundo);
+   /* background-color: var(--cor-fundo);*/
 }
 /************************************************/
 header {
@@ -52,15 +56,47 @@ footer {
     background-color: var(--cor-fundo-clara);
     min-height: 50px; /* altura minima */
 }
-nav {
+#menu-principal {
     display: flex;
     justify-content: center;  /*centralizado horizontal */
     align-items: center;   /*centralizado vertical */
     background-color: var(--cor-secun);
     min-height: 25px; /* altura minima */
     width: 100%;
-    margin: 5px;
+
 }
+#menu-principal ul { /* afeta o <ul> dentro de #menu-principal*/
+   list-style: none; /*tira a decoração dos itens da lista */
+   display: flex; /*container flex - todos os itens filhos na horizontal por padrao*/
+}
+#menu-principal ul li {
+    height: 36px;
+    margin: 0 10px; /* 0 topo, fundo; 10px esquerda e direita */
+    display: flex;
+    align-content: center;
+    
+}
+#menu-principal ul li a {
+    
+    height: 36px;
+    font-family: var(--fonte-titulo);
+    align-content: center;
+    padding: 0 10px;
+    color: var(--color-texto);
+    text-decoration: none; /* sem sublinhado */
+    background-color: var(--cor-secun);
+    transition: 300ms; /*afeta a velocidade dos efeitos hover*/
+}
+/*quando passa o mouse por cima do link*/
+#menu-principal ul li a:hover {
+    /*filtro que escurece a cor do item (cor de frente)
+    * cor de fundo
+    brightness < 1: escurece
+    brightness > 1: clareia*/
+   
+    filter: brightness(0.8);
+}
+
 section {
     display: flex;
     justify-content: center;  /*centralizado horizontal */
